@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "shawnveltman/texthelpers",
+    "description": "A short collection of text helpers that dont yet exist in the Laravel string helpers",
     "keywords": [
-        ":vendor_name",
+        "shawnveltman",
         "laravel",
-        ":package_slug"
+        "texthelpers"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/shawnveltman/texthelpers",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Shawn Veltman",
+            "email": "shawn.veltman@gmail.com",
             "role": "Developer"
         }
     ],
@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Shawnveltman\\Texthelpers\\": "src",
+            "Shawnveltman\\Texthelpers\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Shawnveltman\\Texthelpers\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -54,10 +54,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Shawnveltman\\Texthelpers\\TexthelpersServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "Texthelpers": "Shawnveltman\\Texthelpers\\Facades\\Texthelpers"
             }
         }
     },

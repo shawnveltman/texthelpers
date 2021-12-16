@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Shawnveltman\Texthelpers\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class TexthelpersCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'texthelpers';
 
     public $description = 'My command';
 
