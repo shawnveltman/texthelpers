@@ -7,14 +7,6 @@
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/texthelpers.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/texthelpers)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
 ## Installation
 
 You can install the package via composer:
@@ -23,36 +15,37 @@ You can install the package via composer:
 composer require shawnveltman/texthelpers
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="texthelpers_without_prefix-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-```bash
-php artisan vendor:publish --tag="texthelpers_without_prefix-config"
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="example-views"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
 ## Usage
 
 ```php
-$texthelpers = new Shawnveltman\TextTrait();
-echo $texthelpers->echoPhrase('Hello, Shawnveltman!');
+use \Shawnveltman\Texthelpers\TextTrait;
+```
+
+## Methods
+This package contains a trait with the following functions:
+
+```
+stripEverythingButNumbersAndPeriods
+
+stripEverythingButNumbers
+
+money_from_cents
+Takes in a string or integer with no decimal point (12345), and returns it formatted as a dollar string ($123.45) 
+
+money_from_dollars
+Takes in a string or integer with a decimal point (123.45), and returns it formatted as a dollar string ($123.45)
+
+format_phone_number
+Formats a 10 digit phone number as (xxx) xxx-xxxx (also strips leading 1s)
+
+get_twilio_formatted_number
+Adds a +1 to a 10 digit phone number (+1xxxxxxxxxx)
+
+get_ten_digit_phone_number
+
+format_postal_code
+Splits a 6 digit string into 2 3 digit components (A1B 2C3)
+
 ```
 
 ## Testing
