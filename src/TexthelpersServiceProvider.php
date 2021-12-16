@@ -2,9 +2,9 @@
 
 namespace Shawnveltman\Texthelpers;
 
+use Shawnveltman\Texthelpers\Commands\TexthelpersCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Shawnveltman\Texthelpers\Commands\TexthelpersCommand;
 
 class TexthelpersServiceProvider extends PackageServiceProvider
 {
