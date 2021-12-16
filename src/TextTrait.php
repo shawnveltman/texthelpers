@@ -10,8 +10,7 @@ trait TextTrait
     {
         $value = preg_replace('/[^0-9.]/', '', $inputValue);
 
-        if ($value === '')
-        {
+        if ($value === '') {
             return null;
         }
 
@@ -22,8 +21,7 @@ trait TextTrait
     {
         $value = preg_replace('/\D/', '', $inputValue);
 
-        if ($value === '')
-        {
+        if ($value === '') {
             return null;
         }
 
@@ -43,14 +41,13 @@ trait TextTrait
     #[Pure]
     public function format_phone_number($ten_digit_phone_number): string
     {
-        if (strlen($ten_digit_phone_number) === 11)
-        {
+        if (strlen($ten_digit_phone_number) === 11) {
             $ten_digit_phone_number = Str::substr($ten_digit_phone_number, 1);
         }
 
         $area_code = Str::substr($ten_digit_phone_number, 0, 3);
-        $middle    = Str::substr($ten_digit_phone_number, 3, 3);
-        $end       = Str::substr($ten_digit_phone_number, 6);
+        $middle = Str::substr($ten_digit_phone_number, 3, 3);
+        $end = Str::substr($ten_digit_phone_number, 6);
 
         return "({$area_code}) {$middle}-{$end}";
     }
@@ -66,8 +63,7 @@ trait TextTrait
     {
         $phone_number = Str::replace(['-', ' ', '(', ')', '+'], '', $phone_number);
 
-        if (Str::startsWith($phone_number, '1'))
-        {
+        if (Str::startsWith($phone_number, '1')) {
             $phone_number = Str::substr($phone_number, 1);
         }
 
@@ -78,9 +74,8 @@ trait TextTrait
     {
         $normalized = Str::replace(' ', '', $value);
 
-        if (Str::length($normalized) > 5)
-        {
-            $first_part  = Str::substr($normalized, 0, 3);
+        if (Str::length($normalized) > 5) {
+            $first_part = Str::substr($normalized, 0, 3);
             $second_part = Str::substr($normalized, 3);
 
             return $first_part . ' ' . $second_part;
