@@ -64,5 +64,5 @@ it('formats a string as a postal code when it has 6 characters and a space', fun
 });
 
 it('does not add space in postal code when there are less than 6 characters', function () {
-    expect($this->format_postal_code("T3C 1N"))->toBe("T3C 1N");
+    expect($this->format_postal_code("T3C1N"))->toBe("T3C1N");
 });

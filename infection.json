@@ -1,0 +1,15 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "phpUnit": {
+        "configDir": ""
+    },
+    "mutators": {
+        "@default": true,
+        "@function_signature": false
+    }
+}
