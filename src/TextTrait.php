@@ -90,4 +90,17 @@ trait TextTrait
 
         return $value;
     }
+
+    public function strip_everything_but_letters(string $string)
+    {
+        return preg_replace("/[^a-zA-Z]/", "", $string);
+    }
+
+    public function create_email_address(string $name, string $domain)
+    {
+        $formatted_name = strtolower($this->strip_everything_but_letters($name));
+        $formatted_domain = strtolower($domain);
+
+        return "{$formatted_name}@{$formatted_domain}";
+    }
 }

@@ -66,3 +66,7 @@ it('formats a string as a postal code when it has 6 characters and a space', fun
 it('does not add space in postal code when there are less than 6 characters', function () {
     expect($this->format_postal_code("T3C1N"))->toBe("T3C1N");
 });
+
+it('can strip everything except letters from a string to prepare it for email',function(){
+    expect($this->create_email_address("Shawn O'Veltman12",'test.com'))->toBe('shawnoveltman@test.com');
+});
