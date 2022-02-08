@@ -98,4 +98,26 @@ trait TextTrait
 
         return "{$formatted_name}@{$formatted_domain}";
     }
+
+    public function sanitize_email_address(string $input_email)
+    {
+        $input_array = collect(explode(" ",$input_email));
+        $email_string = '';
+        foreach($input_array as $string)
+        {
+            ray($string);
+            if(Str::contains($string,'@') && strlen($string) > 5)
+            {
+                $email_string = $string;
+                break;
+            }
+        }
+
+        if($email_string === '')
+        {
+            return '';
+        }
+
+        return Str::replace(['<','>','(',')'],'',$email_string);
+    }
 }
