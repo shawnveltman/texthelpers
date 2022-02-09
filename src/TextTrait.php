@@ -63,7 +63,7 @@ trait TextTrait
 
     public function get_ten_digit_phone_number(string $phone_number): string
     {
-        $phone_number = Str::replace(['-', ' ', '(', ')', '+'], '', $phone_number);
+        $phone_number = $this->stripEverythingButNumbers($phone_number) ?? '';
 
         if (Str::startsWith($phone_number, '1')) {
             $phone_number = Str::substr($phone_number, 1);
