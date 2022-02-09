@@ -71,17 +71,17 @@ it('can strip everything except letters from a string to prepare it for email', 
     expect($this->create_email_address("Shawn O'Veltman12", 'test.com'))->toBe('shawnoveltman@test.com');
 });
 
-it('can sanitize emails to strip out the from name',function(){
+it('can sanitize emails to strip out the from name', function () {
     $input_email = "Shawn Veltman <shawn.veltman@gmail.com>";
     expect($this->sanitize_email_address($input_email))->toBe('shawn.veltman@gmail.com');
 });
 
-it('returns valid email from sanitation if there are no <> strings',function(){
+it('returns valid email from sanitation if there are no <> strings', function () {
     expect($this->sanitize_email_address('shawn.veltman@gmail.com'))->toBe('shawn.veltman@gmail.com');
 });
 
-it('can find an email address within a string when sanitizing it',function(){
+it('can find an email address within a string when sanitizing it', function () {
     $email_address = "sha-wn.veltman@test.com";
-    $input_email   = "this is a tricky one that hides the email ({$email_address}) within a larger string";
+    $input_email = "this is a tricky one that hides the email ({$email_address}) within a larger string";
     expect($this->sanitize_email_address($input_email))->toBe($email_address);
 });
