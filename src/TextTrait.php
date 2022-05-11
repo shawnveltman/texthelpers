@@ -125,5 +125,4 @@ trait TextTrait
 
         return preg_replace("/^{$bom}/", '', $text);
     }
-
 }
