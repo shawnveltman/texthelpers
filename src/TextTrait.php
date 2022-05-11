@@ -118,4 +118,12 @@ trait TextTrait
 
         return Str::replace(['<','>','(',')'], '', $email_string);
     }
+
+    public function remove_utf8_bom($text)
+    {
+        $bom = pack('H*', 'EFBBBF');
+
+        return preg_replace("/^{$bom}/", '', $text);
+    }
+
 }
