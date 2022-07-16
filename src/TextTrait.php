@@ -135,15 +135,14 @@ trait TextTrait
     #[ArrayShape(['lat' => 'float', 'lng' => 'float'])]
     public function get_gis_point_array(string $point_string): array
     {
-        if (!$point_string)
-        {
+        if (! $point_string) {
             return [
                 'lat' => 0,
                 'lng' => 0,
             ];
         }
 
-        $new_string  = str_replace(['POINT', '(', ')'], '', $point_string);
+        $new_string = str_replace(['POINT', '(', ')'], '', $point_string);
         $point_array = explode(' ', $new_string);
 
         return [
