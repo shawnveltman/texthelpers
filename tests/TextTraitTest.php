@@ -89,3 +89,10 @@ it('can find an email address within a string when sanitizing it', function () {
 it('gets a GIS point string from a given lat & lng', function () {
     expect($this->get_gis_point_string(lat: 45.5, lng: -75.5))->toBe('POINT(-75.5 45.5)');
 });
+
+it('can convert a GIS point string into an array with lat & lng', function () {
+    expect($this->get_gis_point_array('POINT(-75.5 45.5)'))->toBe([
+        'lat' => 45.5,
+        'lng' => -75.5,
+    ]);
+});

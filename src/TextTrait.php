@@ -3,6 +3,7 @@
 namespace Shawnveltman\Texthelpers;
 
 use Illuminate\Support\Str;
+use JetBrains\PhpStorm\ArrayShape;
 
 trait TextTrait
 {
@@ -131,5 +132,23 @@ trait TextTrait
         return "POINT({$lng} {$lat})";
     }
 
+    #[ArrayShape(['lat' => 'float', 'lng' => 'float'])]
+    public function get_gis_point_array(string $point_string): array
+    {
+        if (!$point_string)
+        {
+            return [
+                'lat' => 0,
+                'lng' => 0,
+            ];
+        }
 
+        $new_string  = str_replace(['POINT', '(', ')'], '', $point_string);
+        $point_array = explode(' ', $new_string);
+
+        return [
+            'lat' => (float)$point_array[1],
+            'lng' => (float)$point_array[0],
+        ];
+    }
 }
