@@ -131,6 +131,7 @@ trait TextTrait
     {
         return "POINT({$lng} {$lat})";
     }
+<<<<<<< HEAD
 
     #[ArrayShape(['lat' => 'float', 'lng' => 'float'])]
     public function get_gis_point_array(string $point_string): array
@@ -151,4 +152,6 @@ trait TextTrait
             'lng' => (float)$point_array[0],
         ];
     }
+=======
+>>>>>>> 7c4481fc2da808671db1415fe417bb6f5b974b8f
 }
