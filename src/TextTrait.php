@@ -126,4 +126,10 @@ trait TextTrait
         return preg_replace("/^{$bom}/", '', $text);
     }
 
+    public function get_gis_point_string(float|string $lat, float|string $lng)
+    {
+        return "POINT({$lng} {$lat})";
+    }
+
+
 }

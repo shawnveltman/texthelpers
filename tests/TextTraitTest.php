@@ -85,3 +85,7 @@ it('can find an email address within a string when sanitizing it', function () {
     $input_email = "this is a tricky one that hides the email ({$email_address}) within a larger string";
     expect($this->sanitize_email_address($input_email))->toBe($email_address);
 });
+
+it('gets a GIS point string from a given lat & lng', function () {
+    expect($this->get_gis_point_string(lat: 45.5, lng: -75.5))->toBe('POINT(-75.5 45.5)');
+});
