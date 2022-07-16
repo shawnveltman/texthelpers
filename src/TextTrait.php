@@ -130,6 +130,4 @@ trait TextTrait
     {
         return "POINT({$lng} {$lat})";
     }
-
-
 }
