@@ -160,6 +160,4 @@ trait TextTrait
 
         return "MULTIPOLYGON((({$top_left_string},{$top_right_string},{$bottom_right_string},{$bottom_left_string},{$top_left_string})))";
     }
-
-
 }
