@@ -96,3 +96,18 @@ it('can convert a GIS point string into an array with lat & lng', function () {
         'lng' => -75.5,
     ]);
 });
+
+it('can get a multipolygon bounding box from top left and bottom right array points', function () {
+    $top_left = [
+        'lng' => 0,
+        'lat' => 5,
+    ];
+    $bottom_right = [
+        'lng' => 5,
+        'lat' => 0,
+    ];
+
+    expect($this->get_gis_bounding_box_from_top_left_and_bottom_right_points($top_left,$bottom_right))
+        ->toBe('MULTIPOLYGON(((0 5,5 5,5 0,0 0,0 5)))');
+}
+);

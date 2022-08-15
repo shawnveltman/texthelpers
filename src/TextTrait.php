@@ -151,4 +151,16 @@ trait TextTrait
             'lng' => (float)$point_array[0],
         ];
     }
+
+    public function get_gis_bounding_box_from_top_left_and_bottom_right_points(array $top_left_point, array $bottom_right_point)
+    {
+        $top_left_string = $top_left_point['lng'] . ' ' . $top_left_point['lat'];
+        $top_right_string = $bottom_right_point['lng'] . ' ' . $top_left_point['lat'];
+        $bottom_right_string = $bottom_right_point['lng'] . ' ' . $bottom_right_point['lat'];
+        $bottom_left_string = $top_left_point['lng'] . ' ' . $bottom_right_point['lat'];
+
+        return "MULTIPOLYGON((({$top_left_string},{$top_right_string},{$bottom_right_string},{$bottom_left_string},{$top_left_string})))";
+    }
+
+
 }
