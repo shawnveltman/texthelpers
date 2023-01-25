@@ -97,6 +97,13 @@ it('can convert a GIS point string into an array with lat & lng', function () {
     ]);
 });
 
+it('can identify if a value is empty or null',function(){
+    expect($this->is_empty_or_null(''))->toBeTrue();
+    expect($this->is_empty_or_null(null))->toBeTrue();
+    expect($this->is_empty_or_null(' '))->toBeTrue();
+    expect($this->is_empty_or_null('0'))->toBeFalse();
+});
+
 it('can get a multipolygon bounding box from top left and bottom right array points', function () {
     $top_left = [
         'lng' => 0,

@@ -161,5 +161,11 @@ trait TextTrait
         return "MULTIPOLYGON((({$top_left_string},{$top_right_string},{$bottom_right_string},{$bottom_left_string},{$top_left_string})))";
     }
 
+    public function is_empty_or_null(?string $value)
+    {
+        $value = trim($value);
+        return $value === '' || $value === null;
+    }
+
 
 }
