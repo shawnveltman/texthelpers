@@ -7,12 +7,12 @@ uses(TextTrait::class);
 it('can convert a phone number to digits only', function ($phone_number) {
     expect($this->get_ten_digit_phone_number($phone_number))->toEqual('2345678900');
 })->with([
-    'already_good' => '2345678900',
-    'includes_one' => '12345678900',
-    'with_dashes' => '1-234-567-8900',
-    'with_spaces' => '1 234 567-8900',
+    'already_good'     => '2345678900',
+    'includes_one'     => '12345678900',
+    'with_dashes'      => '1-234-567-8900',
+    'with_spaces'      => '1 234 567-8900',
     'with_parenthesis' => '1 (234) 567-8900',
-    'with_plus_sign' => '+1 (234) 567-8900',
+    'with_plus_sign'   => '+1 (234) 567-8900',
 ]);
 
 it('can strip everything but numbers and periods', function () {
@@ -82,7 +82,7 @@ it('returns valid email from sanitation if there are no <> strings', function ()
 
 it('can find an email address within a string when sanitizing it', function () {
     $email_address = "sha-wn.veltman@test.com";
-    $input_email = "this is a tricky one that hides the email ({$email_address}) within a larger string";
+    $input_email   = "this is a tricky one that hides the email ({$email_address}) within a larger string";
     expect($this->sanitize_email_address($input_email))->toBe($email_address);
 });
 
@@ -97,24 +97,26 @@ it('can convert a GIS point string into an array with lat & lng', function () {
     ]);
 });
 
-it('can identify if a value is empty or null',function(){
+it('can identify if a value is empty or null', function () {
     expect($this->is_empty_or_null(''))->toBeTrue();
     expect($this->is_empty_or_null(null))->toBeTrue();
     expect($this->is_empty_or_null(' '))->toBeTrue();
     expect($this->is_empty_or_null('0'))->toBeFalse();
 });
 
-it('can get a multipolygon bounding box from top left and bottom right array points', function () {
-    $top_left = [
-        'lng' => 0,
-        'lat' => 5,
-    ];
-    $bottom_right = [
-        'lng' => 5,
-        'lat' => 0,
-    ];
+it('can get a multipolygon bounding box from top left and bottom right array points',
+    function () {
 
-    expect($this->get_gis_bounding_box_from_top_left_and_bottom_right_points($top_left,$bottom_right))
-        ->toBe('MULTIPOLYGON(((0 5,5 5,5 0,0 0,0 5)))');
-}
+        $top_left     = [
+            'lng' => 0,
+            'lat' => 5,
+        ];
+        $bottom_right = [
+            'lng' => 5,
+            'lat' => 0,
+        ];
+
+        expect($this->get_gis_bounding_box_from_top_left_and_bottom_right_points($top_left, $bottom_right))
+            ->toBe('MULTIPOLYGON(((0 5,5 5,5 0,0 0,0 5)))');
+    }
 );

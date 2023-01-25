@@ -167,5 +167,4 @@ trait TextTrait
         return $value === '' || $value === null;
     }
 
-
 }
