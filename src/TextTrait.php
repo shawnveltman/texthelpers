@@ -164,7 +164,7 @@ trait TextTrait
     public function is_empty_or_null(?string $value)
     {
         $value = trim($value);
+
         return $value === '' || $value === null;
     }
-
 }
